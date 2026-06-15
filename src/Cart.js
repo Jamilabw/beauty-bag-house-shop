@@ -1,8 +1,77 @@
 import styled from "styled-components";
+import { useCartContext } from "./context/Cart_Context";
+import CartItem from "./components/CartItem"; 
+import { NavLink } from "react-router-dom";
+import {Button} from './styles/Button'
+import FormatPrice from "./Helpers/FormatPrice";
 
 const Cart = () => {
-  return <Wrapper></Wrapper>;
+  const {cart, clearCart, total_price, shipping_fee} = useCartContext();
+
+  if(cart.length == 0){
+    return <EmptyDiv>
+      NO ITEM IN CART
+    </EmptyDiv>
+  }
+  
+  return <Wrapper>
+    <div className="container">
+      <div className="cart-heading grid grid-five-column">
+        <p>Item</p>
+        <p className="cart_hide">Price</p>
+        <p>Quantity</p>
+        <p className="cart_hide">SubTotal</p>
+        <p>Remove</p>
+      </div>
+
+      <hr/>
+      <div className="cart-item">
+          {
+            cart.map((currItem)=>{
+              return <CartItem key={currItem.id} {...currItem} />
+            })
+          }
+      </div>
+      <hr/>
+      <div className="cart-two-button">
+          <NavLink to={"/products"}>
+            <Button>Continue Shopping</Button>
+          </NavLink>
+            <Button onClick={clearCart} className="btn btn-clear">Clear Cart</Button>
+      </div>
+      <div className="order-total--amount">
+        <div className="order-total--subdata">
+          <div>
+            <p>Subtotal: </p>
+            <p> <FormatPrice price={total_price}/> </p>
+          </div>
+          <div>
+            <p>Shipping:</p>
+            <p><FormatPrice price={shipping_fee}/></p>
+          </div>
+          <hr />
+          <div>
+            <p>Order Total:</p>
+            <p><FormatPrice price={total_price + shipping_fee}/> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Wrapper>;
 };
+
+const EmptyDiv = styled.div`
+  display: grid;
+  place-items: center;
+  height: 50vh;
+
+  h3 {
+    font-size: 4.2rem;
+    text-transform: capitalize;
+    font-weight: 300;
+  }
+`;
+
 
 const Wrapper = styled.section`
   padding: 9rem 0;

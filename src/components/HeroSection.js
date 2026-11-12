@@ -25,7 +25,7 @@ const HeroSection = ({ myData }) => {
           <div className="hero-section-image">
             <figure>
               <img
-                src="images/hero.jpg"
+                src="images/image.png"
                 alt="hero-section-photo"
                 className="img-style"
               />
@@ -38,7 +38,7 @@ const HeroSection = ({ myData }) => {
 };
 
 const Wrapper = styled.section`
-  ${'' /** padding: 12rem 0; */}
+  padding: 7rem 0; 
 
   img {
     min-width: 10rem;

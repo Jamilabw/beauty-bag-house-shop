@@ -7,7 +7,7 @@ import { Button } from "../styles/Button";
 import { useCartContext } from "../context/Cart_Context";
 
 const AddToCart = ({product}) => {
-  const {id, stock, price} = product;
+  const {_id, stock, price} = product;
   const {addToCart} = useCartContext();
 
   const colors = ["#D1563D", "#D13D6E", "#CD5C5C"];
@@ -26,7 +26,7 @@ const AddToCart = ({product}) => {
 
   return <>
     <Wrapper>
-        <div className="colors">
+        {/* <div className="colors">
             <p>
                 Colors: {colors.map((currColor, index)=>{
                     return <button 
@@ -40,7 +40,7 @@ const AddToCart = ({product}) => {
 
                 })}
             </p>
-        </div>
+        </div> */}
 
         {/* Add to cart button */}
         <CartAmountToggle 
@@ -50,7 +50,7 @@ const AddToCart = ({product}) => {
         />
 
         <NavLink to={"/cart"}
-                 onClick = {() => {addToCart(id, quantity, price, product)}} >
+                 onClick = {() => {addToCart(_id, quantity, price, product)}} >
                 <Button className="btn">Add to cart</Button>
         </NavLink>
     </Wrapper>
@@ -64,7 +64,7 @@ const Wrapper = styled.section`
     align-items: center;
   }
   .btnStyle {
-    width: 2rem;
+    w_idth: 2rem;
     height: 2rem;
     background-color: #000;
     border-radius: 50%;

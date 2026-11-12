@@ -5,7 +5,6 @@ import Product from './Product';
 const GridView = ({ products }) =>{
 
     const prods = products;
-    console.log("grid view ", prods);
 
     return <Wrapper className='section'>
             <div className="container grid grid-three-column">
@@ -37,17 +36,7 @@ const Wrapper = styled.section`
     position: relative;
     overflow: hidden;
     transition: all 0.5s linear;
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      transition: all 0.2s linear;
-      cursor: pointer;
-    }
+ 
     &:hover::after {
       width: 100%;
     }
@@ -67,7 +56,7 @@ const Wrapper = styled.section`
     border-radius: 1rem;
 
     .card-data {
-      padding: 0 1rem;
+      padding: 2rem 4rem;
     }
 
     .card-data-flex {

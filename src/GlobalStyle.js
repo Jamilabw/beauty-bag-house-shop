@@ -113,7 +113,8 @@ ${"" /* resuable code section  */}
   .common-heading {
       font-size: 3.8rem;
       font-weight: 600;
-      margin-bottom: 6rem;
+      margin-top: 0.5rem;
+      margin-bottom: 5rem;
       text-transform: capitalize;
     }
 

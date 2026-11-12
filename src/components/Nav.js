@@ -66,7 +66,7 @@ const Navbar = () => {
         height: 2.4rem;
         position: absolute;
         background-color: #000;
-        color: #000;
+        color: #ffffff;
         border-radius: 50%;
         display: grid;
         place-items: center;
@@ -87,6 +87,11 @@ const Navbar = () => {
     }
 
     @media (max-width: ${({ theme }) => theme.media.mobile}) {
+
+      .navbar{
+      padding: 4rem 2rem;
+      }
+
       .mobile-navbar-btn {
         display: inline-block;
         z-index: 9999;

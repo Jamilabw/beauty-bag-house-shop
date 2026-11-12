@@ -6,55 +6,56 @@ import { useFilterContext } from "../context/Filter_Context";
 
 const Sort = () => {
 
-  const {grid_view, setGridView, setListView,  filter_products, sorting} = useFilterContext();
+  const { grid_view, setGridView, setListView, filter_products, sorting } = useFilterContext();
 
   return (
-  <Wrapper className="sort-section">
+    <Wrapper className="sort-section">
 
-    <div className="sorting-list--grid">
+      <div className="sorting-list--grid">
 
-      <button className= {grid_view? "sort-btn active" : "sort-btn"}
-        onClick={setGridView}
-      >
-        <BsFillGridFill className="icon" />
-      </button>
+        <button className={grid_view ? "sort-btn active" : "sort-btn"}
+          onClick={setGridView}
+        >
+          <BsFillGridFill className="icon" />
+        </button>
 
-      <button className= {grid_view? "sort-btn " : "sort-btn active"}
-        onClick={setListView}
-      >
-        <BsList className="icon" />
-      </button>
+        <button className={grid_view ? "sort-btn " : "sort-btn active"}
+          onClick={setListView}
+        >
+          <BsList className="icon" />
+        </button>
 
-    </div>
+      </div>
 
-    <div className="product-data">
-      <p>{filter_products.length} Products Available</p>
-    </div>
-    <div className="sort-selection">
-    <form action="#">
-      <label htmlFor="sort"></label>
-      <select  
-        name = "sort" 
-        id="sort" 
-        className="sort-selection--style"
-        onClick={sorting}
-      >
-        <option value="lowest">Low to high</option>
-        <option value="highest">High to low</option>
-        <option value="a-to-z">A to Z</option>
-        <option value="z-to-a">Z to A</option>
-      </select>
-    </form>  
+      <div className="product-data">
+        <p>{filter_products.length} Products Available</p>
+      </div>
+      <div className="sort-selection">
+        <form action="#">
+          <label htmlFor="sort"></label>
+          <select
+            name="sort"
+            id="sort"
+            className="sort-selection--style"
+            onClick={sorting}
+          >
+            <option value="lowest">Low to high</option>
+            <option value="highest">High to low</option>
+            <option value="a-to-z">A to Z</option>
+            <option value="z-to-a">Z to A</option>
+          </select>
+        </form>
 
-    </div>
+      </div>
 
-  </Wrapper>
+    </Wrapper>
   )
 };
 
 const Wrapper = styled.section`
   display: flex;  
   justify-content: space-between;
+  align-items: center;
   margin-top: 5rem;
 
   .sorting-list--grid {
@@ -90,6 +91,13 @@ const Wrapper = styled.section`
       padding: 10px;
     }
   }
+    
+  @media (max-width: 768px) {
+  margin-top: 0;
+  .sorting-list--grid {
+    display: none;
+  }
+}
 `;
 
 

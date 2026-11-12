@@ -11,33 +11,29 @@ import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Stars from "./components/Stars";
 import AddToCart from "./components/AddToCart";
 
-const API = "https://dummyjson.com/products";
 
 const SingleProduct = () => {
 
   const { getSingleProduct, singleProduct, isSingleLoading } = useProductContext();
 
   const {
-    title: name,
+    name,
     description,
     brand: company,
-    category,
     price,
-    discountPercentage,
-    rating: stars,
+    review: stars,
     stock,
-    images,
-    reviews }
-    = singleProduct;
+    image
+} = singleProduct;
 
-  const { id } = useParams();
-  console.log("the id is ", id);
-
+  const { _id } = useParams();
+  console.log("the id is ", _id);
 
 
-  useEffect(() => {
-    getSingleProduct(`${API}/${id}`);
-  }, [])
+
+ useEffect(() => {
+    getSingleProduct(_id);
+}, [_id]);
 
   if (isSingleLoading) {
     return <div className="page_loading">
@@ -51,18 +47,19 @@ const SingleProduct = () => {
       <div className="grid  grid-two-column">
 
         <div className="product-images">
-          <MyImage img={images} />
+          <MyImage img={image} />
         </div>
 
         <div className="product-data">
           <h2>{name}</h2>
-          <p><Stars stars={stars} reviews={reviews} /></p>
+          {console.log("the name is ", name)};
+          <p><Stars stars={stars} reviews={stars} /></p>
           
           <p className="product-data-price">
             MRP : <del><FormatPrice price={price} /></del>
           </p>
           <p className="product-data-price product-data-real-price">
-            Deal of the Day : <span><FormatPrice price={price - (price * discountPercentage / 100)} /></span>
+            Deal of the Day: <span><FormatPrice price={price} /></span>
           </p>
           <p>
             {description}
@@ -78,10 +75,10 @@ const SingleProduct = () => {
               <p>30 Days Replacement</p>
             </div>
 
-            <div className="product-warranty-data">
+            {/* <div className="product-warranty-data">
               <TbTruckDelivery className="warranty-icon" />
-              <p>Thapa Delivered </p>
-            </div>
+              <p> Delivered </p>
+            </div> */}
 
             <div className="product-warranty-data">
               <MdSecurity className="warranty-icon" />
@@ -94,7 +91,7 @@ const SingleProduct = () => {
               <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
             </p>
             <p>
-              ID : <span> {id} </span>
+              ID : <span> {_id} </span>
             </p>
             <p>
               Brand :<span> {company} </span>

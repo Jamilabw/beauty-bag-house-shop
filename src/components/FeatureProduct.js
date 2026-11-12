@@ -34,11 +34,15 @@ const FeatureProduct = () => {
 }
 
 const Wrapper = styled.section`
-  padding: 5rem 12rem;
+  padding: 5rem 2rem;
   background-color: ${({ theme }) => theme.colors.bg};
 
   .container {
-    max-width: 120rem;
+    max-width: 130rem;
+  }
+
+  .intro-data{
+    font-size: 2rem;
   }
 
   figure {
@@ -49,17 +53,6 @@ const Wrapper = styled.section`
     position: relative;
     overflow: hidden;
     transition: all 0.5s linear;
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      transition: all 0.2s linear;
-      cursor: pointer;
-    }
     &:hover::after {
       width: 100%;
     }
@@ -75,8 +68,8 @@ const Wrapper = styled.section`
 
     .caption {
       position: absolute;
-      top: 15%;
-      right: 10%;
+      top: 5%;
+      right: 4%;
       text-transform: uppercase;
       background-color: ${({ theme }) => theme.colors.bg};
       color: ${({ theme }) => theme.colors.helper};
@@ -91,11 +84,10 @@ const Wrapper = styled.section`
     border-radius: 1rem;
 
     .card-data {
-      padding: 0 2rem;
+      padding: 1rem 2rem;
     }
 
     .card-data-flex {
-      margin: 2rem 0;
       display: flex;
       justify-content: space-between;
       align-items: center;

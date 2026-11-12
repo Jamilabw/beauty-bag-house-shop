@@ -11,6 +11,11 @@ const Cart = () => {
   if(cart.length == 0){
     return <EmptyDiv>
       NO ITEM IN CART
+      <div >
+          <NavLink to={"/products"}>
+            <Button>Start Shopping</Button>
+          </NavLink>
+      </div>
     </EmptyDiv>
   }
   
@@ -18,9 +23,9 @@ const Cart = () => {
     <div className="container">
       <div className="cart-heading grid grid-five-column">
         <p>Item</p>
-        <p className="cart_hide">Price</p>
+        <p className="cart-hide">Price</p>
         <p>Quantity</p>
-        <p className="cart_hide">SubTotal</p>
+        <p className="cart-hide">SubTotal</p>
         <p>Remove</p>
       </div>
 
@@ -28,7 +33,7 @@ const Cart = () => {
       <div className="cart-item">
           {
             cart.map((currItem)=>{
-              return <CartItem key={currItem.id} {...currItem} />
+              return <CartItem key={currItem._id} {...currItem} />
             })
           }
       </div>
@@ -43,7 +48,7 @@ const Cart = () => {
         <div className="order-total--subdata">
           <div>
             <p>Subtotal: </p>
-            <p> <FormatPrice price={total_price}/> </p>
+            <p> <FormatPrice price={total_price}/></p>
           </div>
           <div>
             <p>Shipping:</p>

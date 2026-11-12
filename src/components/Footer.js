@@ -17,7 +17,7 @@ const Footer = () => {
 
             <div>
               <Button className="btn hireme-btn">
-                <NavLink to="/"> Get Started </NavLink>
+                <NavLink to="/"> Contact Now </NavLink>
               </Button>
             </div>
           </div>
@@ -25,11 +25,13 @@ const Footer = () => {
         {/* footer section */}
 
         <footer>
-          <div className="container grid grid-four-column">
+          <div className="footer-container">
+
             <div className="footer-about">
-              <h3>Thapa Technical</h3>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+              <h3>Beauty Bag House</h3>
+              <p>Deals with bags with aesthetic values</p>
             </div>
+
             <div className="footer-subscribe">
               <h3>Subscribe to get important updates</h3>
               <form action="#">
@@ -38,6 +40,7 @@ const Footer = () => {
                 <input type="submit" value="subscribe" />
               </form>
             </div>
+
             <div className="footer-social">
               <h3>Follow Us</h3>
               <div className="footer-social--icons">
@@ -56,21 +59,23 @@ const Footer = () => {
                 </div>
               </div>
             </div>
+
             <div className="footer-contact">
-              <h3>Call Us</h3>
-              <h3>+91 12345678978</h3>
+              <h3>Contact Us</h3>
+              <p>+9112345678978</p>
+              <p>dummy@noone</p>
             </div>
+
           </div>
 
           <div className="footer-bottom--section">
             <hr />
-            <div className="container grid grid-two-column ">
+            <div className="container bottom-sec">
               <p>
-                @{new Date().getFullYear()} ThapaTechnical. All Rights Reserved
+                @{new Date().getFullYear()} BeautyBagHouse. All Rights Reserved
               </p>
               <div>
-                <p>PRIVACY POLICY</p>
-                <p>TERMS & CONDITIONS</p>
+                <p>PRIVACY POLICY  | TERMS & CONDITIONS</p>
               </div>
             </div>
           </div>
@@ -83,6 +88,25 @@ const Footer = () => {
 const Wrapper = styled.section`
   .iSIFGq {
     margin: 0;
+  }
+
+  .footer-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between
+  }
+
+  .footer-about, .footer-subscribe, .footer-social, .footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-subscribe form{
+    display: flex;
+    flex-direction: column;
+    
   }
 
   .contact-short {
@@ -101,11 +125,11 @@ const Wrapper = styled.section`
   }
 
   footer {
-    padding: 14rem 0 9rem 0;
+    padding: 14rem 0 4rem 0;
     background-color: ${({ theme }) => theme.colors.footer_bg};
     h3 {
       color: ${({ theme }) => theme.colors.hr};
-      margin-bottom: 2.4rem;
+      margin-bottom: 2rem;
     }
     p {
       color: ${({ theme }) => theme.colors.white};
@@ -137,17 +161,42 @@ const Wrapper = styled.section`
       color: ${({ theme }) => theme.colors.hr};
       height: 0.1px;
     }
+
+    .bottom-sec{
+        display: flex;
+        justify-content: space-around;
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .contact-short {
       max-width: 80vw;
-      margin: 4.8rem auto;
-      transform: translateY(0%);
+      padding: 2rem;
+      margin: auto;
+      transform: translateY(50%);
       text-align: center;
-
+      
       .grid div:last-child {
         justify-self: center;
+      }
+    }
+
+    .footer-container{
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      margin: 4rem auto;
+      align-items: baseline;
+      gap: 4rem;
+    }
+
+    .footer-about, .footer-subscribe, .footer-social, .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+       
+      h3{
+        margin-bottom: 1rem;
       }
     }
 
@@ -156,7 +205,13 @@ const Wrapper = styled.section`
     }
 
     .footer-bottom--section {
-      padding-top: 4.8rem;
+      padding-top: 4rem;
+
+      .bottom-sec{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
   }
 `;

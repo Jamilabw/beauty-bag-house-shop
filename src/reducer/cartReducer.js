@@ -1,16 +1,16 @@
 const cartReducer = (state, action)=>{
 
     if(action.type === "ADD_TO_CART"){
-        let {id, quantity, price, product} = action.payload;
+        let {__id, quantity, price, product} = action.payload;
 
         let cartProduct;
 
         // handling the existing item in the cart
-        const existingProduct = state.cart.find((curElem)=>curElem.id == id);
+        const existingProduct = state.cart.find((curElem)=>curElem.__id == __id);
         
         if(existingProduct){
             let updatedCart = state.cart.map((curElem)=>{
-                if(curElem.id === id){
+                if(curElem.__id === __id){
                     let newQuantity = curElem.quantity + quantity;
                     if(newQuantity > curElem.max){
                         newQuantity = curElem.max;
@@ -31,9 +31,9 @@ const cartReducer = (state, action)=>{
         } else {
 
         cartProduct = {
-            id: id,
+            __id: __id,
             name: product.title,
-            image: product.images[0],
+            image: product.image,
             price,
             quantity,
             max: product.stock
@@ -49,7 +49,7 @@ const cartReducer = (state, action)=>{
     if(action.type === "REMOVE_ITEM"){
 
         let updatedCart = state.cart.filter((curElem) =>{
-           return curElem.id !== action.payload
+           return curElem.__id !== action.payload
         })
 
         return{
@@ -65,7 +65,7 @@ const cartReducer = (state, action)=>{
     }
     if(action.type === "SET_DECREMENT"){
         let updatedProduct = state.cart.map((curElem) => {
-            if(curElem.id === action.payload){
+            if(curElem.__id === action.payload){
                 let newquantity = curElem.quantity > 1 ? curElem.quantity - 1: 1;
                 return{
                     ...curElem,
@@ -85,7 +85,7 @@ const cartReducer = (state, action)=>{
 
      if(action.type === "SET_INCREMENT"){
         let updatedProduct = state.cart.map((curElem) => {
-            if(curElem.id === action.payload){
+            if(curElem.__id === action.payload){
                 let newquantity = curElem.quantity < curElem.max ? curElem.quantity + 1: curElem.max;
                 return{
                     ...curElem,

@@ -47,13 +47,14 @@ const Wrapper = styled.section`
   padding: 9rem 0;
 
   .grid {
-    gap: 4.8rem;
+    gap: 2rem;
   }
 
   .services-1,
   .services-2,
   .services-3 {
     width: auto;
+    padding: 0 2rem;
     height: 30rem;
     display: flex;
     flex-direction: column;
@@ -61,7 +62,7 @@ const Wrapper = styled.section`
     align-content: center;
     background: ${({ theme }) => theme.colors.bg};
     text-align: center;
-    border-radius: 2rem;
+    border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   }
 
@@ -78,7 +79,7 @@ const Wrapper = styled.section`
       flex: 1;
       justify-content: center;
       align-items: center;
-      border-radius: 2rem;
+      border-radius: 1rem;
       box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
       div {
@@ -100,7 +101,7 @@ const Wrapper = styled.section`
     /* font-size: rem; */
     width: 8rem;
     height: 8rem;
-    padding: 2rem;
+    padding: 1.3rem;
     border-radius: 50%;
     background-color: #fff;
     color: #5138ee;

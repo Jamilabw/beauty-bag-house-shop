@@ -3,20 +3,21 @@ import FormatPrice from "../Helpers/FormatPrice";
 
 
 const Product = ({ curElem }) => {
-    const { id, brand, images, price, category, title } = curElem;
+    const { _id, brand, image, price, name } = curElem;
 
 
     return (
-        <NavLink to={`/singleproduct/${id}`}>
+        <NavLink to={`/singleproduct/${_id}`}>
             <div className="card">
                 <figure>
-                    <img src={images[0]} alt={brand} />
-                    <figcaption className="caption">{category}</figcaption>
+                    <img src={image} alt={brand} />
+                    {console.log("Image is "+image)};
+                    {/* <figcaption className="caption">{category}</figcaption> */}
                 </figure>
 
                 <div className="card-data">
                     <div className="card-data-flex">
-                        <h3>{title}</h3>
+                        <h3>{name}</h3>
                         <p className="card-data--price">
                             <FormatPrice price={price} />
                         </p>

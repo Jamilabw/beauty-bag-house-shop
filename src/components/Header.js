@@ -6,7 +6,8 @@ import Nav from './Nav'
 const Header = () =>{
     return <MainHeader>
         <NavLink to="/">
-            <img src="./images/logo.png" alt="logo" />
+            {/* <img src="./images/logo.png" alt="logo" className="logo"/> */}
+            <h3>Beauty Bag House</h3>
         </NavLink>
         <Nav/>
     </MainHeader>
@@ -22,6 +23,11 @@ const MainHeader = styled.header`
 
     .logo{
     height: 5rem}
+
+    h3{
+    margin-left: 2rem;
+    font-size: 3rem;    
+    }
 `
 
 export default Header;

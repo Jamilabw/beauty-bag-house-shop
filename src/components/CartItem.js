@@ -3,7 +3,7 @@ import CartAmountToggle from "./CartAmountToggle";
 import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../context/Cart_Context";
 
-const CartItem = ({ id, name, image, price, quantity }) => {
+const CartItem = ({ _id, name, image, price, quantity }) => {
 
     const {removeItem, setDecrement, setIncrement} = useCartContext();
 
@@ -26,8 +26,8 @@ const CartItem = ({ id, name, image, price, quantity }) => {
         <div >
             <CartAmountToggle
                 quantity={quantity}
-                setInc={ () => setIncrement(id) }
-                setDec={ () => setDecrement(id) }
+                setInc={ () => setIncrement(_id) }
+                setDec={ () => setDecrement(_id) }
             />
         </div>
 
@@ -36,7 +36,7 @@ const CartItem = ({ id, name, image, price, quantity }) => {
         </div>
 
         <div>
-            <FaTrash className="remove_icon" onClick={() => removeItem(id)} />
+            <FaTrash className="remove_icon" onClick={() => removeItem(_id)} />
         </div>
         
 
